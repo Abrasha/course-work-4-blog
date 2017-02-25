@@ -1,4 +1,19 @@
+spring:
+  datasource:
+    url: jdbc:hsqldb:db/test/blog;hsqldb.write_delay=false
+    username: sa
+    password:
+    driver-class-name: org.hsqldb.jdbcDriver
+  jpa:
+    database-platform: HSQL
+    generate-ddl: true
+    show-sql: true
+    properties:
+      hibernate.format_sql: true
+    hibernate:
+      ddl-auto: create-drop
+
 logging:
   level:
-    org.springframework: 'debug'
-    com.aabramov.blog: 'debug'
+    org.springframework: info
+    com.aabramov: debug
