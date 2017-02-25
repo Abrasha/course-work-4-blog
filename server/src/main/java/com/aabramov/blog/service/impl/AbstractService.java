@@ -1,6 +1,7 @@
-package com.aabramov.blog.service;
+package com.aabramov.blog.service.impl;
 
 import com.aabramov.blog.core.model.AbstractEntity;
+import com.aabramov.blog.service.Service;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;

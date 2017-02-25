@@ -9,16 +9,16 @@ import java.util.List;
  */
 public interface Service<T extends AbstractEntity> {
     
-    void delete(Long id);
-    
-    T save(T entity);
-    
-    long count();
-    
-    T update(T entity);
-    
     T find(Long id);
     
     List<T> findAll();
+    
+    T save(T entity);
+    
+    T update(T entity);
+    
+    void delete(Long id);
+    
+    long count();
     
 }

@@ -3,7 +3,7 @@ package com.aabramov.blog.web.dto;
 /**
  * @author Andrii Abramov on 2/25/17.
  */
-public class AbstractDto {
+public abstract class AbstractDto {
     
     private Long id;
     

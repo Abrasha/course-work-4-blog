@@ -4,6 +4,8 @@ import com.aabramov.blog.BlogApplication;
 import com.aabramov.blog.core.model.Color;
 import com.aabramov.blog.generator.ColorGenerator;
 import com.aabramov.blog.service.ColorService;
+import com.aabramov.blog.service.TagService;
+import com.aabramov.blog.service.impl.ColorServiceImpl;
 import com.aabramov.blog.web.dto.ColorDto;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -26,7 +28,7 @@ import static org.mockito.Mockito.when;
 )
 public class ColorRestControllerTest {
     
-    private static final Long VALID_ID = 3L;
+    private static final Long VALID_ID = 1L;
     
     @Autowired
     private ColorService colorService;
@@ -53,24 +55,24 @@ public class ColorRestControllerTest {
     
     @Test
     public void update() throws Exception {
-        Color validColor = ColorGenerator.getValidColor();
-        validColor.setId(VALID_ID);
+        Color color = ColorGenerator.getValidColor();
+        color.setId(VALID_ID);
         
-        ColorDto expected = colorRestController.convertToDto(validColor);
+        ColorDto expected = colorRestController.convertToDto(color);
         
-        when(colorService.update(validColor)).thenReturn(validColor);
+        when(colorService.update(color)).thenReturn(color);
         
         assertEquals(expected, colorRestController.update(VALID_ID, expected));
     }
     
     @Test
     public void save() throws Exception {
-        Color validColor = ColorGenerator.getValidColor();
-        validColor.setId(VALID_ID);
+        Color color = ColorGenerator.getValidColor();
+        color.setId(VALID_ID);
         
-        ColorDto expected = colorRestController.convertToDto(validColor);
+        ColorDto expected = colorRestController.convertToDto(color);
         
-        when(colorService.save(validColor)).thenReturn(validColor);
+        when(colorService.save(color)).thenReturn(color);
         
         assertEquals(expected, colorRestController.save(expected));
     }

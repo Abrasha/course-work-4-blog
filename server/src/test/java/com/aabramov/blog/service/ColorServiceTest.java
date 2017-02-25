@@ -4,6 +4,7 @@ import com.aabramov.blog.BlogApplication;
 import com.aabramov.blog.core.model.Color;
 import com.aabramov.blog.generator.ColorGenerator;
 import com.aabramov.blog.persistence.repository.ColorRepository;
+import com.aabramov.blog.service.impl.ColorServiceImpl;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;

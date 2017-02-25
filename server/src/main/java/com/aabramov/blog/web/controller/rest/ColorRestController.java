@@ -15,7 +15,7 @@ import static org.springframework.http.MediaType.APPLICATION_JSON_UTF8_VALUE;
  * @author Andrii Abramov on 2/25/17.
  */
 @RestController
-@RequestMapping(Paths.COLORS)
+@RequestMapping(Paths.Colors.ROOT)
 public class ColorRestController extends AbstractRestController<ColorDto, Color> {
     
     private final ColorService colorService;
@@ -32,19 +32,19 @@ public class ColorRestController extends AbstractRestController<ColorDto, Color>
     }
     
     @Override
-    @GetMapping(value = "/{id}", consumes = APPLICATION_JSON_UTF8_VALUE, produces = APPLICATION_JSON_UTF8_VALUE)
+    @GetMapping(value = Paths.Colors.ID, consumes = APPLICATION_JSON_UTF8_VALUE, produces = APPLICATION_JSON_UTF8_VALUE)
     public ColorDto getOne(@PathVariable("id") Long id) {
         return super.getOne(id);
     }
     
     @Override
-    @PutMapping(value = "/{id}", consumes = APPLICATION_JSON_UTF8_VALUE, produces = APPLICATION_JSON_UTF8_VALUE)
+    @PutMapping(value = Paths.Colors.ID, consumes = APPLICATION_JSON_UTF8_VALUE, produces = APPLICATION_JSON_UTF8_VALUE)
     public ColorDto update(@PathVariable("id") Long id, @RequestBody ColorDto body) {
         return super.update(id, body);
     }
     
     @Override
-    @DeleteMapping(value = "/{id}")
+    @DeleteMapping(value = Paths.Colors.ID)
     public void delete(@PathVariable("id") Long id) {
         super.delete(id);
     }
@@ -56,7 +56,7 @@ public class ColorRestController extends AbstractRestController<ColorDto, Color>
     }
     
     @Override
-    @GetMapping(value = "/count")
+    @GetMapping(value = Paths.Colors.COUNT)
     public long count() {
         return super.count();
     }
