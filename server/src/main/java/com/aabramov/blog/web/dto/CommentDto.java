@@ -1,14 +1,12 @@
 package com.aabramov.blog.web.dto;
 
-import com.aabramov.blog.core.model.AbstractEntity;
-
 import java.time.LocalDateTime;
 import java.util.Objects;
 
 /**
  * @author Andrii Abramov on 2/25/17.
  */
-public class CommentDto extends AbstractEntity {
+public class CommentDto extends AbstractDto {
     
     private PostDto post;
     private UserDto author;

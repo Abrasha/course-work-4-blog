@@ -24,4 +24,12 @@ public final class Paths {
         
     }
     
+    public static final class Users {
+        
+        public static final String ROOT = API_V1_ROOT + "/users";
+        public static final String ID = ROOT + "/{id}";
+        public static final String COUNT = ROOT + "/count";
+        
+    }
+    
 }

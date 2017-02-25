@@ -1,9 +1,7 @@
 package com.aabramov.blog.web.dto;
 
-import com.aabramov.blog.core.model.AbstractEntity;
 import com.aabramov.blog.core.model.User;
 
-import javax.persistence.*;
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Objects;
@@ -12,7 +10,7 @@ import java.util.Set;
 /**
  * @author Andrii Abramov on 2/25/17.
  */
-public class PostDto extends AbstractEntity {
+public class PostDto extends AbstractDto {
     
     private String title;
     private String body;

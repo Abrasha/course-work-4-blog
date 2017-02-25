@@ -1,7 +1,5 @@
 package com.aabramov.blog.web.dto;
 
-import com.aabramov.blog.core.model.AbstractEntity;
-
 import java.util.List;
 import java.util.Objects;
 import java.util.Set;
@@ -9,11 +7,12 @@ import java.util.Set;
 /**
  * @author Andrii Abramov on 2/25/17.
  */
-public class UserDto extends AbstractEntity {
+public class UserDto extends AbstractDto {
     
     private List<PostDto> posts;
     private Set<TagDto> favouriteTags;
     private String username;
+    private String email;
     
     public List<PostDto> getPosts() {
         return posts;
@@ -39,16 +38,25 @@ public class UserDto extends AbstractEntity {
         this.favouriteTags = favouriteTags;
     }
     
+    public String getEmail() {
+        return email;
+    }
+    
+    public void setEmail(String email) {
+        this.email = email;
+    }
+    
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         UserDto user = (UserDto) o;
-        return Objects.equals(username, user.username);
+        return Objects.equals(username, user.username)
+                && Objects.equals(email, user.email);
     }
     
     @Override
     public int hashCode() {
-        return Objects.hash(username);
+        return Objects.hash(username, email);
     }
 }
