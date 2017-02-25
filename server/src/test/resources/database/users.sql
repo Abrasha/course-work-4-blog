@@ -1,0 +1,23 @@
+DELETE FROM USERS_FAVOURITE_TAGS;
+DELETE FROM TAGS;
+DELETE FROM COLORS;
+DELETE FROM USERS;
+
+INSERT INTO COLORS (ID, HEX, COLOR_NAME) VALUES
+  (1, '#FF0000', 'Red'),
+  (2, '#00FF00', 'Green');
+
+INSERT INTO TAGS (ID, NAME, COLOR_ID) VALUES
+  (1, 'test-tag-1', 1),
+  (2, 'test-tag-2', 2);
+
+INSERT INTO USERS (ID, EMAIL, PASSWORD, USERNAME) VALUES
+  (1, 'email1@example.com', 'password1', 'user1'),
+  (2, 'email2@example.com', 'password2', 'user2');
+
+INSERT INTO USERS_FAVOURITE_TAGS (USER_ID, FAVOURITE_TAGS_ID) VALUES
+  (1, 1),
+  (2, 1),
+  (2, 2);
+
+

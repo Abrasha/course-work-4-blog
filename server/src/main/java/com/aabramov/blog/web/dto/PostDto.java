@@ -1,4 +1,7 @@
-package com.aabramov.blog.core.model;
+package com.aabramov.blog.web.dto;
+
+import com.aabramov.blog.core.model.AbstractEntity;
+import com.aabramov.blog.core.model.User;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
@@ -9,20 +12,17 @@ import java.util.Set;
 /**
  * @author Andrii Abramov on 2/25/17.
  */
-@Entity
-@Table(name = "posts")
-public class Post extends AbstractEntity {
+public class PostDto extends AbstractEntity {
     
     private String title;
     private String body;
-    private Set<Tag> tags;
-    private List<Comment> comments;
+    private Set<TagDto> tags;
+    private List<CommentDto> comments;
     
     private User author;
     
     private LocalDateTime creationDate;
     
-    @Column
     public String getTitle() {
         return title;
     }
@@ -31,7 +31,6 @@ public class Post extends AbstractEntity {
         this.title = title;
     }
     
-    @Column
     public String getBody() {
         return body;
     }
@@ -40,16 +39,14 @@ public class Post extends AbstractEntity {
         this.body = body;
     }
     
-    @OneToMany(mappedBy = "post")
-    public List<Comment> getComments() {
+    public List<CommentDto> getComments() {
         return comments;
     }
     
-    public void setComments(List<Comment> comments) {
+    public void setComments(List<CommentDto> comments) {
         this.comments = comments;
     }
     
-    @ManyToOne(targetEntity = User.class)
     public User getAuthor() {
         return author;
     }
@@ -58,7 +55,6 @@ public class Post extends AbstractEntity {
         this.author = author;
     }
     
-    @Column
     public LocalDateTime getCreationDate() {
         return creationDate;
     }
@@ -67,12 +63,11 @@ public class Post extends AbstractEntity {
         this.creationDate = creationDate;
     }
     
-    @ManyToMany(targetEntity = Tag.class)
-    public Set<Tag> getTags() {
+    public Set<TagDto> getTags() {
         return tags;
     }
     
-    public void setTags(Set<Tag> tags) {
+    public void setTags(Set<TagDto> tags) {
         this.tags = tags;
     }
     
@@ -80,7 +75,7 @@ public class Post extends AbstractEntity {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Post post = (Post) o;
+        PostDto post = (PostDto) o;
         return Objects.equals(title, post.title) &&
                 Objects.equals(body, post.body) &&
                 Objects.equals(creationDate, post.creationDate);

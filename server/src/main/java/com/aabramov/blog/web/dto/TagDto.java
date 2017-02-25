@@ -1,7 +1,5 @@
 package com.aabramov.blog.web.dto;
 
-import com.aabramov.blog.core.model.Color;
-
 import java.util.Objects;
 
 /**
@@ -10,7 +8,7 @@ import java.util.Objects;
 public class TagDto extends AbstractDto {
     
     private String name;
-    private Color color;
+    private ColorDto color;
     
     public String getName() {
         return name;
@@ -20,11 +18,11 @@ public class TagDto extends AbstractDto {
         this.name = name;
     }
     
-    public Color getColor() {
+    public ColorDto getColor() {
         return color;
     }
     
-    public void setColor(Color color) {
+    public void setColor(ColorDto color) {
         this.color = color;
     }
     

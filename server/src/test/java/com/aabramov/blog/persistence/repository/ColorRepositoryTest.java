@@ -2,6 +2,7 @@ package com.aabramov.blog.persistence.repository;
 
 import com.aabramov.blog.BlogApplication;
 import com.aabramov.blog.core.model.Color;
+import com.aabramov.blog.generator.ColorGenerator;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,8 +18,8 @@ import static org.junit.Assert.*;
  * @author Andrii Abramov on 2/25/17.
  */
 @Rollback
-@Sql("classpath:database/colors.sql")
 @RunWith(SpringJUnit4ClassRunner.class)
+@Sql(scripts = "classpath:database/colors.sql")
 @ContextConfiguration(classes = BlogApplication.class)
 public class ColorRepositoryTest {
     
@@ -73,18 +74,11 @@ public class ColorRepositoryTest {
     
     @Test
     public void testInsert() {
-        Color entity = generateValidColor();
+        Color entity = ColorGenerator.getValidColor("Yellow", "#FFFF00");
         Color saved = colorRepository.save(entity);
         
         assertNotNull(saved.getId());
         assertEquals(3, colorRepository.count());
-    }
-    
-    private Color generateValidColor() {
-        Color result = new Color();
-        result.setName("red");
-        result.setHex("#FF0000");
-        return result;
     }
     
 }

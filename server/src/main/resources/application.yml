@@ -1,6 +1,6 @@
 spring:
   datasource:
-    url: jdbc:hsqldb:db/test/blog;hsqldb.write_delay=false
+    url: jdbc:hsqldb:db/prod/blog;hsqldb.write_delay=false
     username: sa
     password:
     driver-class-name: org.hsqldb.jdbcDriver
@@ -12,7 +12,7 @@ spring:
     properties:
       hibernate.format_sql: true
     hibernate:
-      ddl-auto: update
+      ddl-auto: create
 
 logging:
   level:

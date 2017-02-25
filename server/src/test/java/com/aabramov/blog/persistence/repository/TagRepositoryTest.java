@@ -56,6 +56,20 @@ public class TagRepositoryTest {
     }
     
     @Test
+    public void testUpdate() throws Exception {
+        Tag toUpdate = TagGenerator.getValidTag("test-tag-3", ColorGenerator.getValidColor());
+        toUpdate.getColor().setId(1L);
+        assertNotNull(toUpdate);
+        assertNotNull(toUpdate.getColor());
+        
+        toUpdate.setName("new name");
+        
+        Tag saved = tagRepository.save(toUpdate);
+        assertEquals(saved, toUpdate);
+        
+    }
+    
+    @Test
     public void testCount() throws Exception {
         assertEquals(2, tagRepository.count());
     }

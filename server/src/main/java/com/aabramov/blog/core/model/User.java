@@ -9,12 +9,13 @@ import java.util.Set;
  * @author Andrii Abramov on 2/25/17.
  */
 @Entity
-@Table(name = "names")
+@Table(name = "users")
 public class User extends AbstractEntity {
     
     private List<Post> posts;
     private Set<Tag> favouriteTags;
     private String username;
+    private String email;
     private String password;
     
     @OneToMany(mappedBy = "author")
@@ -53,16 +54,36 @@ public class User extends AbstractEntity {
         this.favouriteTags = favouriteTags;
     }
     
+    public String getEmail() {
+        return email;
+    }
+    
+    public void setEmail(String email) {
+        this.email = email;
+    }
+    
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         User user = (User) o;
-        return Objects.equals(username, user.username);
+        return Objects.equals(username, user.username) &&
+                Objects.equals(email, user.email);
     }
     
     @Override
     public int hashCode() {
-        return Objects.hash(username);
+        return Objects.hash(username, email);
+    }
+    
+    @Override
+    public String toString() {
+        return "User{" +
+                "posts=" + posts +
+                ", favouriteTags=" + favouriteTags +
+                ", username='" + username + '\'' +
+                ", email='" + email + '\'' +
+                ", password='" + password + '\'' +
+                "} " + super.toString();
     }
 }
