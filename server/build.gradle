@@ -21,6 +21,7 @@ dependencies {
     compile 'org.hsqldb:hsqldb:2.3.3'
 
     testCompile 'org.springframework.boot:spring-boot-starter-test:1.5.1.RELEASE'
+    // testCompile 'com.github.javafaker:javafaker:0.12'
     testCompile 'junit:junit:4.12'
 }
 

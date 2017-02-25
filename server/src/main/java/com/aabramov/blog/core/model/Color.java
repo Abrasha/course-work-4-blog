@@ -15,7 +15,7 @@ public class Color extends AbstractEntity {
     private String name;
     private String hex;
     
-    @Column(name = "color_name", nullable = false)
+    @Column(name = "color_name", nullable = false, unique = true)
     public String getName() {
         return name;
     }

@@ -1,4 +1,4 @@
-package com.aabramov.blog.persistence;
+package com.aabramov.blog.persistence.repository;
 
 import com.aabramov.blog.core.model.Color;
 

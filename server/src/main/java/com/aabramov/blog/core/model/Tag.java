@@ -16,7 +16,7 @@ public class Tag extends AbstractEntity {
     private String name;
     private Color color;
     
-    @Column
+    @Column(nullable = false, unique = true)
     public String getName() {
         return name;
     }

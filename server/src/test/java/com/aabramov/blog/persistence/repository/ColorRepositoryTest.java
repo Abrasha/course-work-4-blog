@@ -1,4 +1,4 @@
-package com.aabramov.blog.persistence;
+package com.aabramov.blog.persistence.repository;
 
 import com.aabramov.blog.BlogApplication;
 import com.aabramov.blog.core.model.Color;
@@ -16,10 +16,10 @@ import static org.junit.Assert.*;
 /**
  * @author Andrii Abramov on 2/25/17.
  */
+@Rollback
+@Sql("classpath:database/colors.sql")
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(classes = BlogApplication.class)
-@Rollback
-@Sql("classpath:database/test_data.sql")
 public class ColorRepositoryTest {
     
     private static final Long VALID_ID = 1L;

@@ -1,11 +1,9 @@
 package com.aabramov.blog.core.model;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.util.List;
 import java.util.Objects;
+import java.util.Set;
 
 /**
  * @author Andrii Abramov on 2/25/17.
@@ -15,6 +13,7 @@ import java.util.Objects;
 public class User extends AbstractEntity {
     
     private List<Post> posts;
+    private Set<Tag> favouriteTags;
     private String username;
     private String password;
     
@@ -43,6 +42,15 @@ public class User extends AbstractEntity {
     
     public void setPassword(String password) {
         this.password = password;
+    }
+    
+    @ManyToMany(targetEntity = Tag.class)
+    public Set<Tag> getFavouriteTags() {
+        return favouriteTags;
+    }
+    
+    public void setFavouriteTags(Set<Tag> favouriteTags) {
+        this.favouriteTags = favouriteTags;
     }
     
     @Override

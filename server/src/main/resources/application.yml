@@ -4,6 +4,7 @@ spring:
     username: sa
     password:
     driver-class-name: org.hsqldb.jdbcDriver
+    data: classpath:database/prod_data.sql
   jpa:
     database-platform: HSQL
     generate-ddl: true
