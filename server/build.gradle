@@ -14,16 +14,19 @@ repositories {
     jcenter()
 }
 
-dependencies {
-    compile 'org.springframework.boot:spring-boot-starter-web', { exclude module: 'spring-boot-starter-tomcat' }
+ext {
+    springBoot = 'org.springframework.boot:spring-boot-starter'
+}
 
-    compile 'org.springframework.boot:spring-boot-starter-jetty'
-    compile 'org.springframework.boot:spring-boot-starter-data-jpa'
+dependencies {
+    compile "$springBoot-web", { exclude module: 'spring-boot-starter-tomcat' }
+    compile "$springBoot-jetty"
+    compile "$springBoot-data-jpa"
 
     compile 'org.hsqldb:hsqldb:2.3.3'
     compile 'org.modelmapper:modelmapper:0.7.5'
 
-    testCompile 'org.springframework.boot:spring-boot-starter-test'
+    testCompile "$springBoot-test"
     // testCompile 'com.github.javafaker:javafaker:0.12'
     testCompile 'junit:junit:4.12'
 }
