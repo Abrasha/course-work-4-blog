@@ -1,4 +1,4 @@
-package com.aabramov.blog.persistence.repository.generator;
+package com.aabramov.blog.generator;
 
 import com.aabramov.blog.core.model.Color;
 import com.aabramov.blog.core.model.Tag;

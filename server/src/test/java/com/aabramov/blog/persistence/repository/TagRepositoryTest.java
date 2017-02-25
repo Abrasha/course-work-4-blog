@@ -2,8 +2,8 @@ package com.aabramov.blog.persistence.repository;
 
 import com.aabramov.blog.BlogApplication;
 import com.aabramov.blog.core.model.Tag;
-import com.aabramov.blog.persistence.repository.generator.ColorGenerator;
-import com.aabramov.blog.persistence.repository.generator.TagGenerator;
+import com.aabramov.blog.generator.ColorGenerator;
+import com.aabramov.blog.generator.TagGenerator;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;

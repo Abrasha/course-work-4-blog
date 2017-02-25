@@ -1,4 +1,4 @@
-package com.aabramov.blog.persistence.repository.generator;
+package com.aabramov.blog.generator;
 
 import com.aabramov.blog.core.model.Color;
 
@@ -16,6 +16,12 @@ public class ColorGenerator {
     
     public static Color getValidColor() {
         return getValidColor("Red", "#FF0000");
+    }
+    
+    public static Color getValidColorWithId(Long id) {
+        Color result = getValidColor("Red", "#FF0000");
+        result.setId(id);
+        return result;
     }
     
 }
