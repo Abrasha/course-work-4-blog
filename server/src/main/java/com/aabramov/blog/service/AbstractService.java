@@ -8,7 +8,7 @@ import java.util.List;
 /**
  * @author Andrii Abramov on 2/25/17.
  */
-public abstract class AbstractService<T extends AbstractEntity> implements Service<T, Long> {
+public abstract class AbstractService<T extends AbstractEntity> implements Service<T> {
     
     @Override
     public void delete(Long id) {

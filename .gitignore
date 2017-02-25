@@ -2,3 +2,4 @@
 *.class
 .gralde/
 server/db
+server/out

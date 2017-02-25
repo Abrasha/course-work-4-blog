@@ -7,9 +7,9 @@ import java.util.List;
 /**
  * @author Andrii Abramov on 2/25/17.
  */
-public interface Service<T extends AbstractEntity, ID> {
+public interface Service<T extends AbstractEntity> {
     
-    void delete(ID id);
+    void delete(Long id);
     
     T save(T entity);
     
@@ -17,7 +17,7 @@ public interface Service<T extends AbstractEntity, ID> {
     
     T update(T entity);
     
-    T find(ID id);
+    T find(Long id);
     
     List<T> findAll();
     
