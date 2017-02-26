@@ -13,8 +13,12 @@ spring:
       hibernate.format_sql: true
     hibernate:
       ddl-auto: create
+    database: hsql
+  jackson:
+    date-format: com.fasterxml.jackson.databind.util.ISO8601DateFormat
 
 logging:
   level:
     org.springframework: info
     com.aabramov: debug
+

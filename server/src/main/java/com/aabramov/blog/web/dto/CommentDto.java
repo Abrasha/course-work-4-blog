@@ -1,5 +1,7 @@
 package com.aabramov.blog.web.dto;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import java.time.LocalDateTime;
 import java.util.Objects;
 
@@ -11,15 +13,9 @@ public class CommentDto extends AbstractDto {
     private PostDto post;
     private UserDto author;
     private String body;
+    
+    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
     private LocalDateTime creationDate;
-    
-    public PostDto getPost() {
-        return post;
-    }
-    
-    public void setPost(PostDto post) {
-        this.post = post;
-    }
     
     public UserDto getAuthor() {
         return author;
@@ -50,15 +46,22 @@ public class CommentDto extends AbstractDto {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         CommentDto comment = (CommentDto) o;
-        return Objects.equals(post, comment.post) &&
-                Objects.equals(author, comment.author) &&
+        return Objects.equals(author, comment.author) &&
                 Objects.equals(body, comment.body) &&
                 Objects.equals(creationDate, comment.creationDate);
     }
     
+    public PostDto getPost() {
+        return post;
+    }
+    
+    public void setPost(PostDto post) {
+        this.post = post;
+    }
+    
     @Override
     public int hashCode() {
-        return Objects.hash(post, author, body, creationDate);
+        return Objects.hash(author, body, creationDate);
     }
     
     @Override

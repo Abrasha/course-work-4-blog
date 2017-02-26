@@ -46,7 +46,7 @@ public class Comment extends AbstractEntity {
         this.body = body;
     }
     
-    @Column(nullable = false)
+    @Column
     public LocalDateTime getCreationDate() {
         return creationDate;
     }

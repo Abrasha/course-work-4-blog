@@ -2,7 +2,6 @@ package com.aabramov.blog.core.model;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
-import java.util.List;
 import java.util.Objects;
 import java.util.Set;
 
@@ -15,12 +14,10 @@ public class Post extends AbstractEntity {
     
     private String title;
     private String body;
-    private Set<Tag> tags;
-    private List<Comment> comments;
-    
-    private User author;
-    
     private LocalDateTime creationDate;
+    
+    private Set<Tag> tags;
+    private User author;
     
     @Column
     public String getTitle() {
@@ -38,15 +35,6 @@ public class Post extends AbstractEntity {
     
     public void setBody(String body) {
         this.body = body;
-    }
-    
-    @OneToMany(mappedBy = "post")
-    public List<Comment> getComments() {
-        return comments;
-    }
-    
-    public void setComments(List<Comment> comments) {
-        this.comments = comments;
     }
     
     @ManyToOne(targetEntity = User.class)
@@ -96,7 +84,6 @@ public class Post extends AbstractEntity {
         return "Post{" +
                 "title='" + title + '\'' +
                 ", body='" + body + '\'' +
-                ", comments=" + comments +
                 ", author=" + author +
                 ", creationDate=" + creationDate +
                 "} " + super.toString();

@@ -1,6 +1,5 @@
 package com.aabramov.blog.web.dto;
 
-import java.util.List;
 import java.util.Objects;
 import java.util.Set;
 
@@ -9,18 +8,9 @@ import java.util.Set;
  */
 public class UserDto extends AbstractDto {
     
-    private List<PostDto> posts;
     private Set<TagDto> favouriteTags;
     private String username;
     private String email;
-    
-    public List<PostDto> getPosts() {
-        return posts;
-    }
-    
-    public void setPosts(List<PostDto> posts) {
-        this.posts = posts;
-    }
     
     public String getUsername() {
         return username;

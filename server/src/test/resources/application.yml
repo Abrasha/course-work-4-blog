@@ -15,5 +15,5 @@ spring:
 
 logging:
   level:
-    org.springframework: info
+    root: info
     com.aabramov: debug

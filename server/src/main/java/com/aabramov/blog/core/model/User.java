@@ -1,7 +1,9 @@
 package com.aabramov.blog.core.model;
 
-import javax.persistence.*;
-import java.util.List;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.ManyToMany;
+import javax.persistence.Table;
 import java.util.Objects;
 import java.util.Set;
 
@@ -12,20 +14,10 @@ import java.util.Set;
 @Table(name = "users")
 public class User extends AbstractEntity {
     
-    private List<Post> posts;
     private Set<Tag> favouriteTags;
     private String username;
     private String email;
     private String password;
-    
-    @OneToMany(mappedBy = "author")
-    public List<Post> getPosts() {
-        return posts;
-    }
-    
-    public void setPosts(List<Post> posts) {
-        this.posts = posts;
-    }
     
     @Column
     public String getUsername() {
@@ -79,8 +71,7 @@ public class User extends AbstractEntity {
     @Override
     public String toString() {
         return "User{" +
-                "posts=" + posts +
-                ", favouriteTags=" + favouriteTags +
+                "favouriteTags=" + favouriteTags +
                 ", username='" + username + '\'' +
                 ", email='" + email + '\'' +
                 ", password='" + password + '\'' +

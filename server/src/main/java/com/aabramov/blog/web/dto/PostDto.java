@@ -1,6 +1,8 @@
 package com.aabramov.blog.web.dto;
 
 import com.aabramov.blog.core.model.User;
+import com.fasterxml.jackson.annotation.JsonFormat;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import java.time.LocalDateTime;
 import java.util.List;
@@ -15,10 +17,10 @@ public class PostDto extends AbstractDto {
     private String title;
     private String body;
     private Set<TagDto> tags;
-    private List<CommentDto> comments;
     
     private User author;
     
+    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
     private LocalDateTime creationDate;
     
     public String getTitle() {
@@ -35,14 +37,6 @@ public class PostDto extends AbstractDto {
     
     public void setBody(String body) {
         this.body = body;
-    }
-    
-    public List<CommentDto> getComments() {
-        return comments;
-    }
-    
-    public void setComments(List<CommentDto> comments) {
-        this.comments = comments;
     }
     
     public User getAuthor() {
@@ -89,7 +83,6 @@ public class PostDto extends AbstractDto {
         return "Post{" +
                 "title='" + title + '\'' +
                 ", body='" + body + '\'' +
-                ", comments=" + comments +
                 ", author=" + author +
                 ", creationDate=" + creationDate +
                 "} " + super.toString();
