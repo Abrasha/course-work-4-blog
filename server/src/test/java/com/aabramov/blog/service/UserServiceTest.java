@@ -1,15 +1,14 @@
 package com.aabramov.blog.service;
 
-import com.aabramov.blog.BlogApplication;
 import com.aabramov.blog.core.model.User;
 import com.aabramov.blog.persistence.repository.UserRepository;
+import com.aabramov.blog.test.annotation.SpringTest;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.boot.test.mock.mockito.MockBeans;
-import org.springframework.test.context.ContextConfiguration;
-import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import org.springframework.test.context.junit4.SpringRunner;
 
 import static org.junit.Assert.assertEquals;
 import static org.mockito.Mockito.when;
@@ -17,11 +16,9 @@ import static org.mockito.Mockito.when;
 /**
  * @author Andrii Abramov on 2/26/17.
  */
-@RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(classes = BlogApplication.class)
-@MockBeans(
-        @MockBean(classes = UserRepository.class)
-)
+@SpringTest
+@MockBeans(@MockBean(UserRepository.class))
+@RunWith(SpringRunner.class)
 public class UserServiceTest {
     
     private static final Long VALID_ID = 1L;

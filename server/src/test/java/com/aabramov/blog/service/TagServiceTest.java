@@ -1,16 +1,15 @@
 package com.aabramov.blog.service;
 
-import com.aabramov.blog.BlogApplication;
 import com.aabramov.blog.core.model.Tag;
 import com.aabramov.blog.generator.TagGenerator;
 import com.aabramov.blog.persistence.repository.TagRepository;
+import com.aabramov.blog.test.annotation.SpringTest;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.boot.test.mock.mockito.MockBeans;
-import org.springframework.test.context.ContextConfiguration;
-import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import org.springframework.test.context.junit4.SpringRunner;
 
 import java.util.Arrays;
 
@@ -21,11 +20,9 @@ import static org.mockito.Mockito.when;
 /**
  * @author Andrii Abramov on 2/25/17.
  */
-@RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(classes = BlogApplication.class)
-@MockBeans(
-        @MockBean(classes = TagRepository.class)
-)
+@SpringTest
+@MockBeans(@MockBean(TagRepository.class))
+@RunWith(SpringRunner.class)
 public class TagServiceTest {
     
     private static final long VALID_ID = 1L;

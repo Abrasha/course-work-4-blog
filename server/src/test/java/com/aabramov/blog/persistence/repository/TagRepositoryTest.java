@@ -1,26 +1,21 @@
 package com.aabramov.blog.persistence.repository;
 
-import com.aabramov.blog.BlogApplication;
 import com.aabramov.blog.core.model.Tag;
 import com.aabramov.blog.generator.ColorGenerator;
 import com.aabramov.blog.generator.TagGenerator;
+import com.aabramov.blog.test.annotation.RepositoryTest;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.test.annotation.Rollback;
-import org.springframework.test.context.ContextConfiguration;
-import org.springframework.test.context.jdbc.Sql;
-import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import org.springframework.test.context.junit4.SpringRunner;
 
 import static org.junit.Assert.*;
 
 /**
  * @author Andrii Abramov on 2/25/17.
  */
-@Rollback
-@Sql(scripts = "classpath:database/tags.sql")
-@RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(classes = BlogApplication.class)
+@RepositoryTest("classpath:database/tags.sql")
+@RunWith(SpringRunner.class)
 public class TagRepositoryTest {
     
     private static final Long VALID_ID = 1L;

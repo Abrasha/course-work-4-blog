@@ -1,16 +1,13 @@
 package com.aabramov.blog.persistence.repository;
 
-import com.aabramov.blog.BlogApplication;
 import com.aabramov.blog.core.model.Tag;
 import com.aabramov.blog.core.model.User;
 import com.aabramov.blog.generator.UserGenerator;
+import com.aabramov.blog.test.annotation.RepositoryTest;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.test.annotation.Rollback;
-import org.springframework.test.context.ContextConfiguration;
-import org.springframework.test.context.jdbc.Sql;
-import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.transaction.annotation.Transactional;
 
 import static org.junit.Assert.*;
@@ -18,10 +15,8 @@ import static org.junit.Assert.*;
 /**
  * @author Andrii Abramov on 2/25/17.
  */
-@Rollback
-@ContextConfiguration(classes = BlogApplication.class)
-@RunWith(SpringJUnit4ClassRunner.class)
-@Sql(scripts = "classpath:database/users.sql")
+@RepositoryTest("classpath:database/users.sql")
+@RunWith(SpringRunner.class)
 public class UserRepositoryTest {
     
     private static final Long VALID_ID = 1L;
