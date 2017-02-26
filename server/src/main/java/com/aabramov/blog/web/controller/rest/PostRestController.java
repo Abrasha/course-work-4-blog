@@ -51,7 +51,7 @@ public class PostRestController extends AbstractRestController<PostDto, Post> {
     
     @Override
     @PostMapping(consumes = APPLICATION_JSON_UTF8_VALUE, produces = APPLICATION_JSON_UTF8_VALUE)
-    public PostDto save(PostDto body) {
+    public PostDto save(@RequestBody PostDto body) {
         return super.save(body);
     }
     

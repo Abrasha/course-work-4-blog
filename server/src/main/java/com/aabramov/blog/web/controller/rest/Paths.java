@@ -42,7 +42,7 @@ public final class Paths {
     
     public static final class Comments {
         
-        public static final String ROOT = Posts.ROOT + "/comments";
+        public static final String ROOT = API_V1_ROOT + "/comments";
         public static final String ID = "/{id}";
         public static final String COUNT = "/count";
         

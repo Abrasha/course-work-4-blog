@@ -18,11 +18,11 @@ import static org.springframework.http.MediaType.APPLICATION_JSON_UTF8_VALUE;
 @RequestMapping(Paths.Users.ROOT)
 public class UserRestController extends AbstractRestController<UserDto, User> {
     
-    private final UserService UserService;
+    private final UserService userService;
     
     @Autowired
-    public UserRestController(UserService UserService) {
-        this.UserService = UserService;
+    public UserRestController(UserService userService) {
+        this.userService = userService;
     }
     
     @Override
@@ -51,7 +51,7 @@ public class UserRestController extends AbstractRestController<UserDto, User> {
     
     @Override
     @PostMapping(consumes = APPLICATION_JSON_UTF8_VALUE, produces = APPLICATION_JSON_UTF8_VALUE)
-    public UserDto save(UserDto body) {
+    public UserDto save(@RequestBody UserDto body) {
         return super.save(body);
     }
     
@@ -63,7 +63,7 @@ public class UserRestController extends AbstractRestController<UserDto, User> {
     
     @Override
     public Service<User> getService() {
-        return UserService;
+        return userService;
     }
     
     @Override

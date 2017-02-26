@@ -51,7 +51,7 @@ public class TagRestController extends AbstractRestController<TagDto, Tag> {
     
     @Override
     @PostMapping(consumes = APPLICATION_JSON_UTF8_VALUE, produces = APPLICATION_JSON_UTF8_VALUE)
-    public TagDto save(TagDto body) {
+    public TagDto save(@RequestBody TagDto body) {
         return super.save(body);
     }
     

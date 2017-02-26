@@ -51,7 +51,7 @@ public class ColorRestController extends AbstractRestController<ColorDto, Color>
     
     @Override
     @PostMapping(consumes = APPLICATION_JSON_UTF8_VALUE, produces = APPLICATION_JSON_UTF8_VALUE)
-    public ColorDto save(ColorDto body) {
+    public ColorDto save(@RequestBody  ColorDto body) {
         return super.save(body);
     }
     

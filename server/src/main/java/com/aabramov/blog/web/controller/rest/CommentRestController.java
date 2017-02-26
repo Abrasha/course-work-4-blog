@@ -31,7 +31,6 @@ public class CommentRestController extends AbstractRestController<CommentDto, Co
         return super.getAll();
     }
     
-    @Override
     @GetMapping(value = Paths.Comments.ID, consumes = APPLICATION_JSON_UTF8_VALUE, produces = APPLICATION_JSON_UTF8_VALUE)
     public CommentDto getOne(@PathVariable("id") Long id) {
         return super.getOne(id);
@@ -51,7 +50,7 @@ public class CommentRestController extends AbstractRestController<CommentDto, Co
     
     @Override
     @PostMapping(consumes = APPLICATION_JSON_UTF8_VALUE, produces = APPLICATION_JSON_UTF8_VALUE)
-    public CommentDto save(CommentDto body) {
+    public CommentDto save(@RequestBody CommentDto body) {
         return super.save(body);
     }
     
