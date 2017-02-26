@@ -1,5 +1,12 @@
 .idea/
 *.class
-.gralde/
+*.iml
+.gradle/
+server/build/
 server/db
 server/out
+client/node_modules
+
+client/node_modules/
+client/app/bower_components/
+.idea
